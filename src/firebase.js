@@ -3,6 +3,9 @@ import {
     FirebaseDataProvider
   } from 'react-admin-firebase';
 
+  const options = {
+    logging: true,
+  }
 
   var firebaseConfig = {
     apiKey: process.env.REACT_APP_APIKEY,
@@ -13,5 +16,5 @@ import {
     appId: process.env.REACT_APP_APPID
   };
 
-export const dataProvider = FirebaseDataProvider(firebaseConfig);
-export const authProvider = FirebaseAuthProvider(firebaseConfig);
+export const dataProvider = FirebaseDataProvider(firebaseConfig, options);
+export const authProvider = FirebaseAuthProvider(firebaseConfig, options);
