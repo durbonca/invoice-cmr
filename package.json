@@ -1,17 +1,19 @@
 {
-  "name": "invoice-cmr",
-  "version": "0.1.0",
+  "name": "scv",
+  "version": "1.04",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "firebase": "^8.8.1",
+    "firebase": "^8.10.0",
     "react": "^17.0.2",
-    "react-admin": "^3.17.1",
-    "react-admin-firebase": "^3.2.24",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-uuid": "^1.0.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
