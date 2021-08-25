@@ -91,7 +91,7 @@ export const DBProvider = ({children}) => {
                     }
                 })
                 .catch((err) => {
-                    console.log(err.message);
+                    console.error(err.message);
                 })
         }
     }
@@ -131,12 +131,8 @@ export const DBProvider = ({children}) => {
     // }
 
 
-    useEffect(() => {
-        handleColumns(DataSet)
-    },[DataSet])
-
     const handleColumns= () => {
-        console.log('handleColumns')
+        // console.log('handleColumns')
         if(DataSet.length > 0){
             let cols = Object.keys(DataSet[0]);
             if(!showIdCell){
@@ -147,16 +143,20 @@ export const DBProvider = ({children}) => {
     }
 
     const getDataCollection = (collection) => {
-        console.log("getdatacollection")
+        // console.log("getdatacollection")
         const DataRef = db.collection(collection).orderBy('datetime', 'desc');
         DataRef.onSnapshot(snapshot => {
             let data = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
             data.forEach(d => {d.datetime = d.datetime.toDate().toDateString()})
             setState((prevState) => ({...prevState, DataSet: data }))
         },(error) => {
-            console.log(error)
+            console.error(error)
         });
     }
+
+    useEffect( () => {
+        handleColumns(DataSet)
+    },[DataSet])
 
     const value = useMemo(() => {
         return {
